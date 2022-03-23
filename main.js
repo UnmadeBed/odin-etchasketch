@@ -14,27 +14,17 @@ containerDiv.id = 'container-div';
 // containerDiv.style.width = '500px';
 body.appendChild(containerDiv);
 
-const coolstuff = [];
+const divs = [];
 // loop to produce 256 (16 x 16) small divs
 for (let i = 0; i < 256; i++) {
 	const div = document.createElement('div');
 	div.id = 'blueBox';
 	containerDiv.appendChild(div);
-	coolstuff.push(div);
+	divs.push(div);
 }
-
-coolstuff.forEach((element) =>
-	addEventListener(
-		'mouseover',
-		function (event) {
-			// highlight the mouseenter target
-			event.target.style.backgroundColor = 'green';
-
-			// reset the color after a short delay
-			setTimeout(function () {
-				event.target.style.backgroundColor = '';
-			}, 500);
-		},
-		false
-	)
+divs.forEach((element) =>
+	element.addEventListener('mouseover', function (event) {
+		// highlight the mouseenter target
+		event.target.style.backgroundColor = 'green';
+	})
 );
