@@ -28,3 +28,7 @@ divs.forEach((element) =>
 		event.target.style.backgroundColor = 'green';
 	})
 );
+
+function resetBoard() {
+	divs.forEach((element) => (element.style.backgroundColor = 'blue'));
+}
