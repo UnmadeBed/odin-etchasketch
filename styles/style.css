@@ -16,17 +16,22 @@ body {
 	max-width: 960px;
 	width: 500px;
 	height: 500px;
-	background-color: red;
-	margin: 100px auto;
+	background-color: white;
+	margin: 15px auto;
 	padding: 10px;
 	display: grid;
+	/* Need to move the two properties below to javascript so that a variable can be used to set the number of boxes required by the user. */
 	grid-template-columns: repeat(16, 1fr);
 	grid-template-rows: repeat(16, 1fr);
 }
 
-#blueBox {
+#whiteBox {
 	height: 30px;
 	width: 30px;
-	background-color: blue;
-	border: skyblue 1px solid;
+	background-color: white;
 }
+
+/* button {
+	width: 150px;
+	margin: 10px 450px;
+} */
