@@ -16,8 +16,10 @@ body {
 	max-width: 960px;
 	width: 500px;
 	height: 500px;
+	box-shadow: 10px 10px 30px rgb(60, 104, 131);
+	/* border: 5px solid black; */
 	background-color: white;
-	margin: 15px auto;
+	margin: auto;
 	padding: 10px;
 	display: grid;
 	/* Need to move the two properties below to javascript so that a variable can be used to set the number of boxes required by the user. */
@@ -31,7 +33,16 @@ body {
 	background-color: white;
 }
 
-/* button {
-	width: 150px;
-	margin: 10px 450px;
-} */
+#button {
+	display: block;
+	margin: 50px auto;
+	width: 200px;
+	height: 50px;
+}
+
+p {
+	/* display: block; */
+	/* margin: 10px auto; */
+	text-align: center;
+	margin: 25px;
+}

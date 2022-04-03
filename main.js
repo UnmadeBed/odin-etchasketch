@@ -21,5 +21,12 @@ divs.forEach((element) =>
 // attach onclick event to button element to trigger resetBoard()
 button.onclick = function resetBoard() {
 	divs.forEach((element) => (element.style.backgroundColor = 'white'));
+	let numSquares = prompt(
+		'Choose number of squares per side on board:',
+		'(example: 50)'
+	);
+	if (numSquares != null) {
+		document.querySelector('#userChoice').innerHTML =
+			'You chose ' + numSquares + ' squares per side!';
+	}
 };
-body.appendChild(button);
