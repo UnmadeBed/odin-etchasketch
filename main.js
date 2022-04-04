@@ -8,6 +8,7 @@ const divs = [];
 
 // attach onclick event to button element to trigger resetBoard()
 button.onclick = function resetBoard() {
+	divs.forEach((element) => element.remove());
 	divs.forEach((element) => (element.style.backgroundColor = 'white'));
 	let numSquares = prompt(
 		'Choose number of squares per side on board:',
@@ -16,10 +17,10 @@ button.onclick = function resetBoard() {
 	if (numSquares >= 2 && numSquares <= 50) {
 		document.querySelector('#userChoice').innerHTML =
 			'You chose ' + numSquares + ' squares per side!';
+		numberOfSquares(numSquares);
 	} else {
 		console.log('Sorry, your number is not within range.');
 	}
-	numberOfSquares(numSquares);
 };
 
 // function to choose how many squares are required.
