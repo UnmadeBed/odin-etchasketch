@@ -1,16 +1,10 @@
+// NOTE: Need to refactor this. Make functions tidier and easier to read flow.
+
 // grab elements from HTML doc
 const body = document.querySelector('body');
 const container = document.querySelector('#container-div');
 const button = document.querySelector('#button');
 const divs = [];
-
-// loop to produce 256 (16 x 16) small divs
-// for (let i = 0; i < 256; i++) {
-// 	const div = document.createElement('div');
-// 	div.id = 'whiteBox';
-// 	container.appendChild(div);
-// 	divs.push(div);
-// }
 
 // attach onclick event to button element to trigger resetBoard()
 button.onclick = function resetBoard() {
@@ -19,9 +13,11 @@ button.onclick = function resetBoard() {
 		'Choose number of squares per side on board:',
 		'(example: 50)'
 	);
-	if (numSquares != null) {
+	if (numSquares >= 2 && numSquares <= 50) {
 		document.querySelector('#userChoice').innerHTML =
 			'You chose ' + numSquares + ' squares per side!';
+	} else {
+		console.log('Sorry, your number is not within range.');
 	}
 	numberOfSquares(numSquares);
 };
