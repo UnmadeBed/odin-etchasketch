@@ -1,5 +1,7 @@
 // NOTE: Need to refactor this. Make functions tidier and easier to read flow.
 
+// NOTE: Need to add function top prepopulate board before reset button is pressed.
+
 // grab elements from HTML doc
 const body = document.querySelector('body');
 const container = document.querySelector('#container-div');
@@ -23,6 +25,24 @@ button.onclick = function resetBoard() {
 	}
 };
 
+// random rgba value generator
+function random_rgba() {
+	var o = Math.round,
+		r = Math.random,
+		s = 255;
+	return (
+		'rgba(' +
+		o(r() * s) +
+		',' +
+		o(r() * s) +
+		',' +
+		o(r() * s) +
+		',' +
+		r().toFixed(1) +
+		')'
+	);
+}
+
 // function to choose how many squares are required.
 function numberOfSquares(num) {
 	let grid = num * num;
@@ -31,7 +51,7 @@ function numberOfSquares(num) {
 		div.id = 'whiteBox';
 		div.addEventListener('mouseover', function (event) {
 			// highlight the mouseenter target
-			event.target.style.backgroundColor = 'black';
+			event.target.style.backgroundColor = random_rgba();
 		});
 		container.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
 		container.style.gridTemplateRows = `repeat(${num}, 1fr)`;
