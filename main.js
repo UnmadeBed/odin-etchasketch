@@ -2,21 +2,15 @@
 const body = document.querySelector('body');
 const container = document.querySelector('#container-div');
 const button = document.querySelector('#button');
+const divs = [];
 
 // loop to produce 256 (16 x 16) small divs
-const divs = [];
-for (let i = 0; i < 256; i++) {
-	const div = document.createElement('div');
-	div.id = 'whiteBox';
-	container.appendChild(div);
-	divs.push(div);
-}
-divs.forEach((element) =>
-	element.addEventListener('mouseover', function (event) {
-		// highlight the mouseenter target
-		event.target.style.backgroundColor = 'black';
-	})
-);
+// for (let i = 0; i < 256; i++) {
+// 	const div = document.createElement('div');
+// 	div.id = 'whiteBox';
+// 	container.appendChild(div);
+// 	divs.push(div);
+// }
 
 // attach onclick event to button element to trigger resetBoard()
 button.onclick = function resetBoard() {
@@ -29,4 +23,23 @@ button.onclick = function resetBoard() {
 		document.querySelector('#userChoice').innerHTML =
 			'You chose ' + numSquares + ' squares per side!';
 	}
+	numberOfSquares(numSquares);
 };
+
+// function to choose how many squares are required.
+function numberOfSquares(num) {
+	let grid = num * num;
+	for (let i = 0; i < grid; i++) {
+		const div = document.createElement('div');
+		div.id = 'whiteBox';
+		div.addEventListener('mouseover', function (event) {
+			// highlight the mouseenter target
+			event.target.style.backgroundColor = 'black';
+		});
+		container.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
+		container.style.gridTemplateRows = `repeat(${num}, 1fr)`;
+		container.appendChild(div);
+		divs.push(div);
+		// style.setProperty(propertyName, value, priority);
+	}
+}

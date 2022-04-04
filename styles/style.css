@@ -22,14 +22,9 @@ body {
 	margin: auto;
 	padding: 10px;
 	display: grid;
-	/* Need to move the two properties below to javascript so that a variable can be used to set the number of boxes required by the user. */
-	grid-template-columns: repeat(16, 1fr);
-	grid-template-rows: repeat(16, 1fr);
 }
 
 #whiteBox {
-	height: 30px;
-	width: 30px;
 	background-color: white;
 }
 
@@ -41,8 +36,6 @@ body {
 }
 
 p {
-	/* display: block; */
-	/* margin: 10px auto; */
 	text-align: center;
 	margin: 25px;
 }
