@@ -10,18 +10,18 @@ const divs = [];
 
 // attach onclick event to button element to trigger resetBoard()
 button.onclick = function resetBoard() {
+	button.value = 'Play again?';
 	divs.forEach((element) => element.remove());
 	divs.forEach((element) => (element.style.backgroundColor = 'white'));
-	let numSquares = prompt(
-		'Choose number of squares per side on board:',
-		'(example: 50)'
-	);
-	if (numSquares >= 2 && numSquares <= 50) {
+	let numSquares = prompt('Choose a number from 2 to 100:');
+	if (numSquares >= 2 && numSquares <= 100) {
 		document.querySelector('#userChoice').innerHTML =
 			'You chose ' + numSquares + ' squares per side!';
 		numberOfSquares(numSquares);
 	} else {
-		console.log('Sorry, your number is not within range.');
+		document.querySelector('#userChoice').innerHTML =
+			'Whoops! Please choose a number from 2 to 100';
+		button.value = 'Try again?';
 	}
 };
 
